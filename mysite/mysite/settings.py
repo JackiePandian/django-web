@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,27 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ALLOW_METHODS = (
+    'GET', 
+    'POST', 
+    'PUT', 
+    'PATCH', 
+    'DELETE', 
+)
+
+CORS_ALLOW_HEADERS = (
+    'Content-Type',  # Add other allowed headers as needed
+)
+
+CORS_ALLOWED_ORIGINS = [
+    "http://example1.com",
+    "https://example2.com",
+    "http://localhost:3000",
 ]
 
 ROOT_URLCONF = 'mysite.urls'
